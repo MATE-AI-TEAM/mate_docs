@@ -1,4 +1,4 @@
-name: Notify Repo A
+name: Notify Repo Role-AI
 
 on:
   push:
@@ -9,9 +9,9 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send notification to Repo A
+      - name: Send notification to Repo Role-AI
         run: |
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          curl -X POST -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/MATE-AI-TEAM/role-AI/dispatches \
           -d '{"event_type":"update_submodule"}'
